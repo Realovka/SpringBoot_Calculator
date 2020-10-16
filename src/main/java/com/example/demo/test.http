@@ -1,0 +1,54 @@
+POST http://localhost:8080/test/calc
+Content-Type: application/json
+
+{
+  "num1": 5,
+  "num2": 8,
+  "operationType": "MULT"
+}
+
+###
+
+POST http://localhost:8080/test/calc
+Content-Type: application/json
+
+{
+  "num1": 11,
+  "num2": 5,
+  "operationType": "SUM"
+}
+
+###
+
+POST http://localhost:8080/test/calc
+Content-Type: application/json
+
+{
+  "num1": 6,
+  "num2": 3,
+  "operationType": "SUM"
+}
+
+###
+
+
+POST http://localhost:8080/test/calc
+Content-Type: application/json
+
+{
+  "num1": 31,
+  "num2": 5,
+  "operationType": "DIV"
+}
+
+###
+GET http://localhost:8080/test/history
+
+###
+
+POST http://localhost:8080/test/filter
+Content-Type: application/json
+
+{
+  "operationType": "SUM"
+}
