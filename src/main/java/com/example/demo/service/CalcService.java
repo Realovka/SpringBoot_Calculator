@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.HistoryDaoImpl;
 import com.example.demo.entity.Operation;
+import com.example.demo.repository.TestResource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,10 +9,13 @@ import java.util.List;
 
 @Service
 public class CalcService {
-    private HistoryDaoImpl historyDaoImpl;
 
-    public CalcService(HistoryDaoImpl historyDaoImpl) {
-        this.historyDaoImpl = historyDaoImpl;
+
+    private TestResource testResource;
+
+
+    public CalcService(TestResource testResource) {
+        this.testResource = testResource;
     }
 
     public Operation calc(Operation operation) {
@@ -30,20 +33,20 @@ public class CalcService {
                 operation.setResult(operation.getNum1() / operation.getNum2());
 
         }
-        historyDaoImpl.addOperation(operation);
+        testResource.save(operation);
         return operation;
     }
 
     public List<Operation> getHistory() {
-        return historyDaoImpl.createHistory();
+        return testResource.findAll();
     }
 
 
-    public List<Operation> getFiltration(Operation operation) {
-        List<Operation> allOperations = historyDaoImpl.createHistory();
+    public List<Operation> getFiltration(String operationType) {
+        List<Operation> allOperations = testResource.findAll();
         List<Operation> filtrationOperations = new ArrayList<>();
         for (Operation item : allOperations) {
-            if (item.getOperationType().equals(operation.getOperationType())) {
+            if (item.getOperationType().equals(operationType)) {
                 filtrationOperations.add(item);
             }
         }

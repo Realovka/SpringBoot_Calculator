@@ -1,5 +1,6 @@
 POST http://localhost:8080/test/calc
 Content-Type: application/json
+api_key:495ed4a3-4e4c-4977-9aad-ef999aea1060
 
 {
   "num1": 5,
@@ -11,6 +12,7 @@ Content-Type: application/json
 
 POST http://localhost:8080/test/calc
 Content-Type: application/json
+api_key: 495ed4a3-4e4c-4977-9aad-ef999aea1060
 
 {
   "num1": 11,
@@ -43,12 +45,36 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/test/history
+api_key:495ed4a3-4e4c-4977-9aad-ef999aea1060
 
 ###
 
-POST http://localhost:8080/test/filter
+GET http://localhost:8080/test/test
 Content-Type: application/json
+api_key:495ed4a3-4e4c-4977-9aad-ef999aea1060
 
 {
   "operationType": "SUM"
+}
+
+###
+
+POST http://localhost:8080/user/reg
+Content-Type: application/json
+
+{
+  "name": "name1",
+  "login": "login1",
+  "password": "password1"
+}
+
+###
+
+POST http://localhost:8080/user/auth
+Content-Type: application/json
+
+{
+  "name": "name1",
+  "login": "login1",
+  "password": "password1"
 }
